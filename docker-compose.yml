@@ -45,7 +45,7 @@ services:
 
   php:
     build:
-      context: .
+      context: ./php
       dockerfile: Dockerfile
     container_name: php
     volumes:

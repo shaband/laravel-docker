@@ -14,7 +14,7 @@ RUN apk add --no-cache $PHPIZE_DEPS \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-RUN apk-get install -y \
+RUN apk add  --no-cache \
     libzip-dev \
     zip \
   && docker-php-ext-install zip
@@ -44,10 +44,6 @@ RUN apk add --no-cache --virtual .build-deps \
     oniguruma-dev \
     rsync \
     zlib-dev
-
-    # Enable PECL and PEAR extensions
-RUN docker-php-ext-enable     imagick 
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
 # Install php extensions
 RUN docker-php-ext-install \
